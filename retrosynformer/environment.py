@@ -272,17 +272,9 @@ class RetroGymEnvironment:
             self.current_depth = self.branching_depths.pop()
 
     def get_reactants_from_templates(self, product, template):
-        """TODO Write a function that:
-        - Returns the reactants given a reaction template and a product.
-        - Currently: this is a dummy implementation that splits the strin in half.
-        """
         return utils.apply_template(template, product)
 
     def check_if_building_block(self, smiles):
-        """TODO Write a function which:
-        - Checks if the target compound is a building block molecule.
-        - Currently dummy look up. Assumes that self.building_blocks is a set.
-        """
         inchi_key = Chem.inchi.MolToInchiKey(Chem.MolFromSmiles(smiles))
         if inchi_key in self.building_blocks:
             building_block = True

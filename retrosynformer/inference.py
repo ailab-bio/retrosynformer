@@ -122,7 +122,7 @@ class RoutePredictor:
         all_beams_done = False
         with torch.no_grad():
 
-            while not (any_solved_beam or all_beams_done):  # TODO add timelimit
+            while not (any_solved_beam or all_beams_done):
                 new_beams = []
                 route_done_beams, route_solved_beams = [], []
                 for i, beam_i in enumerate(current_beams):
@@ -292,7 +292,7 @@ class RoutePredictor:
                 )
                 new_rtgs_tensor = torch.cat(
                     (current_beam.rtgs_tensor, new_rtg), dim=1
-                )  # .unsqueeze(0)
+                )
                 new_timesteps = torch.arange(
                     0, len(current_beam.predicted_actions) + 1
                 ).unsqueeze(0)

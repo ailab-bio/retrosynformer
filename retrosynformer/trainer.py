@@ -283,7 +283,6 @@ class RetroTrainer:
                 print(f"Evaluating {len(pred_routes)} routes.")
                 # profiler.dump_stats(os.path.join(save_folder, 'emmas_predict_3.cprofile'))
 
-                # if solved_routes: # not sure what this one means
                 solved_routes = [r["route_solved"] for r in pred_routes]
                 fraction_targets_solved = sum(solved_routes) / len(solved_routes)
                 print("fraction solved targets: ", fraction_targets_solved)

@@ -84,9 +84,6 @@ def init_data(config):
             ~train_valid_data["target"].isin(valid_data["target"].tolist())
         ]
 
-    # test_valid_targets = test_data["target"].tolist() + valid_data["target"].tolist()
-    # train_data = routes_data[~routes_data["target"].isin(test_valid_targets)]
-
     print("len train data", len(train_data))
     if (
         "drop_duplicates" in config["dataset"].keys()
@@ -157,20 +154,6 @@ def create_dataloaders_n1_n5(datasets, config, shuffle=False):
         drop_duplicates=True,
     )
 
-    #
-    # n1_dataset, n5_dataset = deepcopy(test_dataset), deepcopy(test_dataset)
-
-    # print(len(n1_dataset.data[n1_dataset.data['n1_target'] == True]))
-    # print(len(n5_dataset.data[n5_dataset.data['n5_target'] == True]))
-    print("N1:")
-    print(n1_dataset.data.head())
-    print("N5:")
-    print(n5_dataset.data.head())
-    # n1_routes = test_dataset[test_dataset['n1_target'] == True]
-    # n5_routes = test_dataset[test_dataset['n5_target'] == True]
-    print("AFTER Number of n1 routes: ", len(n1_dataset.data))
-    print("AFTER Number of n5 routes: ", len(n5_dataset.data))
-
     batch_size = config["evaluation"]["batch_size"]
     n1_dataloader = DataLoader(n1_dataset, batch_size, collate_fn=collate_fn)
     n5_dataloader = DataLoader(n5_dataset, batch_size, collate_fn=collate_fn)
@@ -211,7 +194,6 @@ def init_model(config, model_path=None):
     return model
 
 
-# main is equivalent to what is in train.py. below function to be replaced with train.py
 def main(config_path):
     start_time = time.time()
     print("Initiate training.")

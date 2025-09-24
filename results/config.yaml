@@ -1,14 +1,13 @@
 context:
-  building_blocks: building_blocks.csv
+  building_blocks: /data/standard_building_blocks.csv
   random_state: 42
-  templates_library: uspto_template_library.csv
-  templates_path: uspto_routes_templates.pickle
+  templates_path: /data/standard_reaction_templates.pickle
 dataset:
   action_dim: 1573
   drop_duplicates: true
   fp_dim: 1024
   n_in_state: 2
-  routes_path: uspto_dt_routes.json
+  routes_path: /data/retrosynformer_routes.json
   shuffle: true
   synthetic_routes_path: false
   valid_set: n1+n5
@@ -44,4 +43,4 @@ train:
   batch_size: 128
   loss: crossEntropyLoss
   n_epochs: 200
-  results_path: .
+  results_path: /retrosynformer/results/ 

@@ -77,7 +77,6 @@ texttable==1.7.0
 threadpoolctl==3.5.0
 tokenizers==0.14.1
 toolz==1.0.0
-torch==1.13.1+cu117
 tqdm==4.67.1
 transformers==4.35.0
 typing_extensions==4.12.2

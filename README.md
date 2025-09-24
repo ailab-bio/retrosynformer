@@ -12,18 +12,24 @@ Then, create and activate the conda environment by executing the following comma
 conda create -n retrosynformer-env python=3.11
 conda activate myenv
 ```
+
+Then install PyTorch with the appropriate CUDA version. For CUDA=11.7 run:
+```
+pip install torch==1.13 --index-url https://download.pytorch.org/whl/cu117
+```
+
 Finally, use pip to intall the requirements:
 `pip install -r requirements.txt`
 
 
 # User guide
 1. Download and preprocess the dataset (2 steps, see Data)
-2. Update the config file and train the data using `retrosynformer/train.py`
-3. Use the trained model and `retrosynformer/predict.py` to predict retrosynthesis routes
+2. Update the config file located in: `/retrosynformer/results/config.yaml`
+3. Train the data using: `retrosynformer/train.py`
+3. Use the trained model and `retrosynformer/predict.py` to predict retrosynthesis routes for the test targets.
 
 ## Data
-Downlowad the PaRoutes dataset [2] from https://zenodo.org/records/7341155. 
-Dataset can then be preprocessed by running the create_routes_dataset.ipynb notebook followed by process_routes.py.
+Downlowad the PaRoutes dataset [2] from https://zenodo.org/records/17177425 and place in a data folder. 
 
 ## Training
 - `retrosynformer/train.py`: Run to train the Decicion Transformer. See `results/config.yaml` for an example config file.
